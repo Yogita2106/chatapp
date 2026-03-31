@@ -1,13 +1,14 @@
 const express = require("express");
-// 1. Yahan getUsers ko add karo
-const { register, login, getUsers } = require("../controllers/authController");
+// Controller se naya function import kiya
+const { register, login, getUsers, searchUsers } = require("../controllers/authController");
 
 const router = express.Router();
 
 router.post("/register", register);
 router.post("/login", login);
+router.get("/users", getUsers);
 
-// 2. Ye naya route add karo jo frontend mang raha hai
-router.get("/users", getUsers); 
+// Naya search route add kiya
+router.get("/search", searchUsers); 
 
 module.exports = router;
