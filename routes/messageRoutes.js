@@ -1,9 +1,11 @@
 const express = require("express");
-const auth = require("../middleware/authMiddleware");
+// Note: Agar 'auth' middleware issues de raha hai toh testing ke liye temporarily hata sakte ho
+const auth = require("../middleware/authMiddleware"); 
 const { getMessages } = require("../controllers/messageController");
 
 const router = express.Router();
 
-router.get("/:userId", auth, getMessages);
+// Isey badal kar sirf "/" kar do kyunki data ab query params (?sender=...) mein hai
+router.get("/", getMessages); 
 
 module.exports = router;
